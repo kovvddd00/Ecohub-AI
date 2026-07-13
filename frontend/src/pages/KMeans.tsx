@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useApp } from '../context/AppContext';
+import { useApp, API_BASE } from '../context/AppContext';
 import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, Cell } from 'recharts';
 import { Play, Target } from 'lucide-react';
 import { EmptyState } from '../components/EmptyState';
@@ -34,7 +34,7 @@ export const KMeans: React.FC = () => {
     if (selectedFeatures.length === 0) { setError('Select features.'); return; }
     setLoading(true); setError(null);
     try {
-      const res = await fetch('http://localhost:8000/api/kmeans', {
+      const res = await fetch(`${API_BASE}/kmeans`, {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ features: selectedFeatures, k_selected: kSelected, k_max: 10 }),
       });

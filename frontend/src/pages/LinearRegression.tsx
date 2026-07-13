@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useApp } from '../context/AppContext';
+import { useApp, API_BASE } from '../context/AppContext';
 import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Label } from 'recharts';
 import { Play, CheckCircle, TrendingUp } from 'lucide-react';
 import { EmptyState } from '../components/EmptyState';
@@ -33,7 +33,7 @@ export const LinearRegression: React.FC = () => {
     if (!selectedTarget || selectedFeatures.length === 0) { setError('Select target and features.'); return; }
     setLoading(true); setError(null);
     try {
-      const res = await fetch('http://localhost:8000/api/linear-regression', {
+      const res = await fetch(`${API_BASE}/linear-regression`, {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ features: selectedFeatures, target: selectedTarget }),
       });

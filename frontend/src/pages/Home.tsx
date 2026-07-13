@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useApp } from '../context/AppContext';
+import { useApp, API_BASE } from '../context/AppContext';
 import { StatCard } from '../components/StatCard';
 import { ModelCard } from '../components/ModelCard';
 import {
@@ -39,7 +39,7 @@ export const Home: React.FC = () => {
 
   const fetchDashboardCharts = async () => {
     try {
-      const res = await fetch('http://localhost:8000/api/eda', {
+      const res = await fetch(`${API_BASE}/eda`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({})

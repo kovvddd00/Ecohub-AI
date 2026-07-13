@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useApp } from '../context/AppContext';
+import { useApp, API_BASE } from '../context/AppContext';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, ScatterChart, Scatter, CartesianGrid, Label } from 'recharts';
 import { BarChart3, Eye, GitCommit, Grid3x3 } from 'lucide-react';
 import { EmptyState } from '../components/EmptyState';
@@ -56,7 +56,7 @@ export const EDA: React.FC = () => {
       const body: Record<string, string> = {};
       if (xCol) body.x_col = xCol;
       if (yCol) body.y_col = yCol;
-      const res = await fetch('http://localhost:8000/api/eda', {
+      const res = await fetch(`${API_BASE}/eda`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),

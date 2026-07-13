@@ -56,7 +56,8 @@ interface AppContextType {
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
-const API_BASE = 'http://localhost:8000/api';
+export const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+export const API_BASE = `${API_URL}/api`;
 
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [status, setStatus] = useState<DatasetStatus>({ loaded: false });

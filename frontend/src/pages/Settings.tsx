@@ -1,5 +1,5 @@
 import React from 'react';
-import { useApp } from '../context/AppContext';
+import { useApp, API_URL } from '../context/AppContext';
 import { Sun, Moon, Server, Info } from 'lucide-react';
 
 export const SettingsPage: React.FC = () => {
@@ -38,7 +38,7 @@ export const SettingsPage: React.FC = () => {
           <label className="text-[11px] text-[#6B7280] font-medium">Backend URL</label>
           <input
             type="text"
-            value="http://localhost:8000"
+            value={API_URL}
             readOnly
             className="input-base text-xs font-mono text-[#6B7280]"
           />
