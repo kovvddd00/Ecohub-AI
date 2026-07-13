@@ -277,11 +277,16 @@ def run_logistic_regression(df: pd.DataFrame, features: list, target: str) -> di
         X_encoded, y_encoded, test_size=0.2, random_state=42, stratify=y_encoded
     )
     
-    model = LogisticRegression(max_iter=1000)
-    model.fit(X_train, y_train)
+    # Scale features to prevent convergence issues
+    scaler = StandardScaler()
+    X_train_scaled = scaler.fit_transform(X_train)
+    X_test_scaled = scaler.transform(X_test)
     
-    y_pred = model.predict(X_test)
-    y_prob = model.predict_proba(X_test)[:, 1] # Probability of positive class
+    model = LogisticRegression(max_iter=1000)
+    model.fit(X_train_scaled, y_train)
+    
+    y_pred = model.predict(X_test_scaled)
+    y_prob = model.predict_proba(X_test_scaled)[:, 1] # Probability of positive class
     
     # Compute metrics
     acc = accuracy_score(y_test, y_pred)
