@@ -59,19 +59,19 @@ export const LogisticRegression: React.FC = () => {
   return (
     <div className="space-y-5 max-w-[1200px]">
       <div>
-        <h1 className="text-2xl font-bold font-display tracking-tight text-white flex items-center gap-2">
+        <h1 className="text-2xl font-bold font-display tracking-tight text-[var(--color-text)] flex items-center gap-2">
           <GitBranch className="w-6 h-6 text-emerald-400" /> Logistic Regression
         </h1>
-        <p className="text-xs text-[#6B7280] mt-1">Binary classification with evaluation metrics.</p>
+        <p className="text-xs text-[var(--color-text-dim)] mt-1">Binary classification with evaluation metrics.</p>
       </div>
 
       {error && <div className="text-xs text-red-400 bg-red-500/8 border border-red-500/15 px-3 py-2 rounded-lg">{error}</div>}
 
       <div className="grid grid-cols-3 gap-4">
         <div className="col-span-1 card-base p-4 space-y-4">
-          <h3 className="text-sm font-semibold text-white">Configuration</h3>
+          <h3 className="text-sm font-semibold text-[var(--color-text)]">Configuration</h3>
           <div className="space-y-1.5">
-            <label className="text-[11px] text-[#6B7280] font-medium">Target (Binary)</label>
+            <label className="text-[11px] text-[var(--color-text-dim)] font-medium">Target (Binary)</label>
             <select value={selectedTarget} onChange={e => setSelectedTarget(e.target.value)} className="input-base text-xs">
               <option value="">Select...</option>
               {allCols.map((c, i) => {
@@ -86,14 +86,14 @@ export const LogisticRegression: React.FC = () => {
             )}
           </div>
           <div className="space-y-1.5">
-            <label className="text-[11px] text-[#6B7280] font-medium">Features</label>
-            <div className="space-y-1 max-h-40 overflow-y-auto border border-[#1F2937] p-2 rounded-lg bg-[#0d1526]">
+            <label className="text-[11px] text-[var(--color-text-dim)] font-medium">Features</label>
+            <div className="space-y-1 max-h-40 overflow-y-auto border border-border p-2 rounded-lg bg-bg-input">
               {numericCols.map((c, i) => (
                 <label key={i} className="flex items-center gap-2 text-xs py-0.5 cursor-pointer">
                   <input type="checkbox" checked={selectedFeatures.includes(c)} disabled={c === selectedTarget}
                     onChange={() => setSelectedFeatures(p => p.includes(c) ? p.filter(f => f !== c) : [...p, c])}
-                    className="w-3.5 h-3.5 rounded border-[#374151] bg-[#0d1526] text-emerald-500 focus:ring-emerald-500" />
-                  <span className={c === selectedTarget ? 'text-[#374151] line-through' : 'text-[#9CA3AF]'}>{c}</span>
+                    className="w-3.5 h-3.5 rounded border-border-hover bg-bg-input text-emerald-500 focus:ring-emerald-500" />
+                  <span className={c === selectedTarget ? 'text-[#374151] line-through' : 'text-[var(--color-text-muted)]'}>{c}</span>
                 </label>
               ))}
             </div>
@@ -107,31 +107,31 @@ export const LogisticRegression: React.FC = () => {
           {!results && !loading && (
             <div className="card-base flex flex-col items-center justify-center py-16 text-center">
               <GitBranch className="w-10 h-10 text-emerald-500/20 mb-2" />
-              <p className="text-xs text-[#6B7280]">Configure and click Train Classifier.</p>
+              <p className="text-xs text-[var(--color-text-dim)]">Configure and click Train Classifier.</p>
             </div>
           )}
           {loading && (
             <div className="card-base flex flex-col items-center justify-center py-16">
               <div className="w-6 h-6 border-2 border-emerald-500 border-t-transparent rounded-full animate-spin mb-2" />
-              <p className="text-xs text-[#6B7280]">Training on backend...</p>
+              <p className="text-xs text-[var(--color-text-dim)]">Training on backend...</p>
             </div>
           )}
           {results && !loading && (<>
             <div className="grid grid-cols-4 gap-3">
               {[{ n: 'Accuracy', v: results.accuracy }, { n: 'Precision', v: results.precision }, { n: 'Recall', v: results.recall }, { n: 'F1 Score', v: results.f1_score }].map((m, i) => (
                 <div key={i} className="card-base p-3">
-                  <p className="text-[10px] text-[#6B7280] uppercase font-semibold tracking-wider">{m.n}</p>
+                  <p className="text-[10px] text-[var(--color-text-dim)] uppercase font-semibold tracking-wider">{m.n}</p>
                   <p className="text-lg font-bold text-gradient mt-0.5 font-display">{(m.v * 100).toFixed(1)}%</p>
                 </div>
               ))}
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="card-base p-4">
-                <h3 className="text-sm font-semibold text-white mb-3">Confusion Matrix</h3>
+                <h3 className="text-sm font-semibold text-[var(--color-text)] mb-3">Confusion Matrix</h3>
                 <div className="grid grid-cols-2 gap-2 text-center">
-                  <div className="bg-[#0d1526] p-3 rounded-lg border border-[#1F2937]">
-                    <span className="text-[9px] text-[#6B7280] uppercase font-semibold">TN</span>
-                    <strong className="block text-2xl text-white mt-1">{results.confusion_matrix.tn}</strong>
+                  <div className="bg-bg-input p-3 rounded-lg border border-border">
+                    <span className="text-[9px] text-[var(--color-text-dim)] uppercase font-semibold">TN</span>
+                    <strong className="block text-2xl text-[var(--color-text)] mt-1">{results.confusion_matrix.tn}</strong>
                   </div>
                   <div className="bg-red-500/5 p-3 rounded-lg border border-red-500/10">
                     <span className="text-[9px] text-red-400 uppercase font-semibold">FP</span>
@@ -146,10 +146,10 @@ export const LogisticRegression: React.FC = () => {
                     <strong className="block text-2xl text-emerald-400 mt-1">{results.confusion_matrix.tp}</strong>
                   </div>
                 </div>
-                <p className="text-[10px] text-[#4B5563] text-center mt-2">{results.data_points_used} samples total</p>
+                <p className="text-[10px] text-[var(--color-text-dim)] text-center mt-2">{results.data_points_used} samples total</p>
               </div>
               <div className="card-base p-4">
-                <h3 className="text-sm font-semibold text-white mb-3">Classification Report</h3>
+                <h3 className="text-sm font-semibold text-[var(--color-text)] mb-3">Classification Report</h3>
                 <table className="table-base">
                   <thead>
                     <tr><th>Class</th><th>Precision</th><th>Recall</th><th className="text-right">F1</th></tr>
@@ -160,7 +160,7 @@ export const LogisticRegression: React.FC = () => {
                       if (!r) return null;
                       return (
                         <tr key={i}>
-                          <td className="font-medium text-white">{cls}</td>
+                          <td className="font-medium text-[var(--color-text)]">{cls}</td>
                           <td>{r.precision.toFixed(2)}</td>
                           <td>{r.recall.toFixed(2)}</td>
                           <td className="text-right text-emerald-400 font-medium">{r['f1-score'].toFixed(2)}</td>

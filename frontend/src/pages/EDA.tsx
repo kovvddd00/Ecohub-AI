@@ -81,14 +81,14 @@ export const EDA: React.FC = () => {
   return (
     <div className="space-y-5 max-w-[1200px]">
       <div>
-        <h1 className="text-2xl font-bold font-display tracking-tight text-white">Exploratory Data Analysis</h1>
-        <p className="text-xs text-[#6B7280] mt-1">Analyze distributions, outliers, relationships, and correlations.</p>
+        <h1 className="text-2xl font-bold font-display tracking-tight text-[var(--color-text)]">Exploratory Data Analysis</h1>
+        <p className="text-xs text-[var(--color-text-dim)] mt-1">Analyze distributions, outliers, relationships, and correlations.</p>
       </div>
 
       {localError && <div className="text-xs text-red-400 bg-red-500/8 border border-red-500/15 px-3 py-2 rounded-lg">{localError}</div>}
 
       {/* Tabs */}
-      <div className="flex gap-1 bg-[#111827] p-1 rounded-lg border border-[#1F2937] w-fit">
+      <div className="flex gap-1 bg-bg-card p-1 rounded-lg border border-border w-fit">
         {tabs.map(tab => (
           <button
             key={tab.id}
@@ -96,7 +96,7 @@ export const EDA: React.FC = () => {
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
               activeTab === tab.id
                 ? 'bg-emerald-500/10 text-emerald-400 shadow-sm'
-                : 'text-[#6B7280] hover:text-[#9CA3AF]'
+                : 'text-[var(--color-text-dim)] hover:text-[var(--color-text-muted)]'
             }`}
           >
             {tab.icon}
@@ -116,11 +116,11 @@ export const EDA: React.FC = () => {
           {/* Left — Controls */}
           <div className="col-span-1 space-y-4">
             <div className="card-base p-4 space-y-4">
-              <h4 className="text-xs font-semibold text-white uppercase tracking-wider">Controls</h4>
+              <h4 className="text-xs font-semibold text-[var(--color-text)] uppercase tracking-wider">Controls</h4>
 
               {activeTab === 'histogram' && (
                 <div className="space-y-1.5">
-                  <label className="text-[11px] text-[#6B7280] font-medium">Variable</label>
+                  <label className="text-[11px] text-[var(--color-text-dim)] font-medium">Variable</label>
                   <select value={selectedHistCol} onChange={e => setSelectedHistCol(e.target.value)} className="input-base text-xs">
                     {numericCols.map((c, i) => <option key={i} value={c}>{c}</option>)}
                   </select>
@@ -129,7 +129,7 @@ export const EDA: React.FC = () => {
 
               {activeTab === 'boxplot' && (
                 <div className="space-y-1.5">
-                  <label className="text-[11px] text-[#6B7280] font-medium">Variable</label>
+                  <label className="text-[11px] text-[var(--color-text-dim)] font-medium">Variable</label>
                   <select value={selectedBoxCol} onChange={e => setSelectedBoxCol(e.target.value)} className="input-base text-xs">
                     {numericCols.map((c, i) => <option key={i} value={c}>{c}</option>)}
                   </select>
@@ -139,13 +139,13 @@ export const EDA: React.FC = () => {
               {activeTab === 'scatter' && (
                 <div className="space-y-3">
                   <div className="space-y-1.5">
-                    <label className="text-[11px] text-[#6B7280] font-medium">X Axis</label>
+                    <label className="text-[11px] text-[var(--color-text-dim)] font-medium">X Axis</label>
                     <select value={scatterX} onChange={e => setScatterX(e.target.value)} className="input-base text-xs">
                       {numericCols.map((c, i) => <option key={i} value={c}>{c}</option>)}
                     </select>
                   </div>
                   <div className="space-y-1.5">
-                    <label className="text-[11px] text-[#6B7280] font-medium">Y Axis</label>
+                    <label className="text-[11px] text-[var(--color-text-dim)] font-medium">Y Axis</label>
                     <select value={scatterY} onChange={e => setScatterY(e.target.value)} className="input-base text-xs">
                       {numericCols.map((c, i) => <option key={i} value={c}>{c}</option>)}
                     </select>
@@ -154,21 +154,21 @@ export const EDA: React.FC = () => {
               )}
 
               {activeTab === 'heatmap' && (
-                <p className="text-[11px] text-[#6B7280] leading-relaxed">
+                <p className="text-[11px] text-[var(--color-text-dim)] leading-relaxed">
                   Pearson correlation matrix. Green = positive, Red = negative.
                 </p>
               )}
 
-              <div className="h-px bg-[#1F2937]" />
-              <p className="text-[11px] text-[#4B5563]">Dataset: <strong className="text-[#9CA3AF]">{status.filename}</strong></p>
+              <div className="h-px bg-border" />
+              <p className="text-[11px] text-[var(--color-text-dim)]">Dataset: <strong className="text-[var(--color-text-muted)]">{status.filename}</strong></p>
             </div>
 
             {activeTab === 'boxplot' && activeSummary && (
               <div className="card-base p-4 space-y-3">
-                <h4 className="text-xs font-semibold text-[#6B7280] uppercase tracking-wider">Stats</h4>
+                <h4 className="text-xs font-semibold text-[var(--color-text-dim)] uppercase tracking-wider">Stats</h4>
                 <div className="space-y-2 text-xs">
                   {[['Mean', activeSummary.mean], ['Std', activeSummary.std], ['Min', activeSummary.min], ['Max', activeSummary.max]].map(([k, v]) => (
-                    <div key={k as string} className="flex justify-between"><span className="text-[#6B7280]">{k}</span><span className="text-white font-medium font-mono">{typeof v === 'number' ? v.toFixed(3) : v}</span></div>
+                    <div key={k as string} className="flex justify-between"><span className="text-[var(--color-text-dim)]">{k}</span><span className="text-[var(--color-text)] font-medium font-mono">{typeof v === 'number' ? v.toFixed(3) : v}</span></div>
                   ))}
                 </div>
               </div>
@@ -179,8 +179,8 @@ export const EDA: React.FC = () => {
           <div className="col-span-3 card-base p-4">
             {activeTab === 'histogram' && (
               <div>
-                <h3 className="text-sm font-semibold text-white mb-1">{selectedHistCol} Distribution</h3>
-                <p className="text-[11px] text-[#6B7280] mb-3">Frequency distribution across bins</p>
+                <h3 className="text-sm font-semibold text-[var(--color-text)] mb-1">{selectedHistCol} Distribution</h3>
+                <p className="text-[11px] text-[var(--color-text-dim)] mb-3">Frequency distribution across bins</p>
                 <div className="h-[300px]">
                   <ResponsiveContainer width="100%" height="100%">
                     <BarChart data={activeHistData} margin={{ top: 10, right: 10, left: -15, bottom: 0 }}>
@@ -197,10 +197,10 @@ export const EDA: React.FC = () => {
 
             {activeTab === 'boxplot' && activeBoxData && (
               <div>
-                <h3 className="text-sm font-semibold text-white mb-1">{selectedBoxCol} Box Plot</h3>
-                <p className="text-[11px] text-[#6B7280] mb-4">Quartile visualization</p>
+                <h3 className="text-sm font-semibold text-[var(--color-text)] mb-1">{selectedBoxCol} Box Plot</h3>
+                <p className="text-[11px] text-[var(--color-text-dim)] mb-4">Quartile visualization</p>
                 <div className="py-6 px-4 space-y-6">
-                  <div className="relative h-3 bg-[#1F2937] rounded-full">
+                  <div className="relative h-3 bg-border rounded-full">
                     {(() => {
                       const range = (activeBoxData.max - activeBoxData.min) || 1;
                       const q1 = ((activeBoxData.q1 - activeBoxData.min) / range) * 100;
@@ -215,9 +215,9 @@ export const EDA: React.FC = () => {
                   </div>
                   <div className="grid grid-cols-5 gap-2 text-center text-xs">
                     {[['Min', activeBoxData.min], ['Q1', activeBoxData.q1], ['Median', activeBoxData.median], ['Q3', activeBoxData.q3], ['Max', activeBoxData.max]].map(([label, val]) => (
-                      <div key={label as string} className="bg-[#0d1526] p-2 rounded-lg border border-[#1F2937]">
-                        <span className="block text-[10px] text-[#6B7280]">{label}</span>
-                        <strong className="text-sm text-white">{(val as number).toFixed(2)}</strong>
+                      <div key={label as string} className="bg-bg-input p-2 rounded-lg border border-border">
+                        <span className="block text-[10px] text-[var(--color-text-dim)]">{label}</span>
+                        <strong className="text-sm text-[var(--color-text)]">{(val as number).toFixed(2)}</strong>
                       </div>
                     ))}
                   </div>
@@ -239,8 +239,8 @@ export const EDA: React.FC = () => {
               <div>
                 <div className="flex items-center justify-between mb-3">
                   <div>
-                    <h3 className="text-sm font-semibold text-white">{scatterX} vs {scatterY}</h3>
-                    <p className="text-[11px] text-[#6B7280]">Bivariate scatter</p>
+                    <h3 className="text-sm font-semibold text-[var(--color-text)]">{scatterX} vs {scatterY}</h3>
+                    <p className="text-[11px] text-[var(--color-text-dim)]">Bivariate scatter</p>
                   </div>
                   {loading && <div className="w-4 h-4 border-2 border-emerald-500 border-t-transparent rounded-full animate-spin" />}
                 </div>
@@ -264,8 +264,8 @@ export const EDA: React.FC = () => {
 
             {activeTab === 'heatmap' && (
               <div>
-                <h3 className="text-sm font-semibold text-white mb-1">Correlation Matrix</h3>
-                <p className="text-[11px] text-[#6B7280] mb-3">Pearson coefficients</p>
+                <h3 className="text-sm font-semibold text-[var(--color-text)] mb-1">Correlation Matrix</h3>
+                <p className="text-[11px] text-[var(--color-text-dim)] mb-3">Pearson coefficients</p>
                 <div className="overflow-auto max-h-[320px] p-1">
                   <div className="grid gap-[2px] min-w-[400px]" style={{ gridTemplateColumns: `repeat(${numericCols.length}, minmax(0, 1fr))` }}>
                     {edaData.heatmap.map((cell, idx) => {
@@ -284,9 +284,9 @@ export const EDA: React.FC = () => {
                     })}
                   </div>
                 </div>
-                <div className="flex flex-wrap gap-1.5 mt-3 pt-3 border-t border-[#1F2937]">
+                <div className="flex flex-wrap gap-1.5 mt-3 pt-3 border-t border-border">
                   {numericCols.map((c, i) => (
-                    <span key={i} className="text-[10px] bg-[#0d1526] text-[#6B7280] px-2 py-0.5 rounded font-mono border border-[#1F2937]">{c}</span>
+                    <span key={i} className="text-[10px] bg-bg-input text-[var(--color-text-dim)] px-2 py-0.5 rounded font-mono border border-border">{c}</span>
                   ))}
                 </div>
               </div>

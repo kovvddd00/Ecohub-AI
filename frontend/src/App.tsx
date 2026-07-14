@@ -52,7 +52,7 @@ const MainContent: React.FC = () => {
 const App: React.FC = () => {
   return (
     <AppProvider>
-      <div className="min-h-screen bg-[#0B1220]">
+      <div className="min-h-screen bg-bg-app">
         <Sidebar />
         <MainContent />
       </div>

@@ -8,25 +8,55 @@
    ═══════════════════════════════════════════════ */
 
 @theme {
-  --color-bg-app: #0B1220;
-  --color-bg-card: #111827;
-  --color-bg-card-hover: #161f30;
-  --color-bg-sidebar: #0a0f1a;
-  --color-bg-input: #0d1526;
-  --color-border: #1F2937;
-  --color-border-hover: #374151;
+  --color-bg-app: var(--bg-app);
+  --color-bg-card: var(--bg-card);
+  --color-bg-card-hover: var(--bg-card-hover);
+  --color-bg-sidebar: var(--bg-sidebar);
+  --color-bg-input: var(--bg-input);
+  --color-border: var(--border);
+  --color-border-hover: var(--border-hover);
   --color-primary: #10B981;
   --color-primary-hover: #059669;
   --color-primary-muted: rgba(16, 185, 129, 0.12);
   --color-secondary: #14B8A6;
   --color-danger: #EF4444;
   --color-warning: #F59E0B;
-  --color-text: #FFFFFF;
-  --color-text-muted: #9CA3AF;
-  --color-text-dim: #6B7280;
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-text-dim: var(--text-dim);
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-display: 'Outfit', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+}
+
+:root {
+  --bg-app: #F9FAFB;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #F3F4F6;
+  --bg-sidebar: #FFFFFF;
+  --bg-input: #FFFFFF;
+  --border: #E5E7EB;
+  --border-hover: #D1D5DB;
+  --text: #111827;
+  --text-muted: #4B5563;
+  --text-dim: #6B7280;
+  
+  color-scheme: light;
+}
+
+:root.dark {
+  --bg-app: #0B1220;
+  --bg-card: #111827;
+  --bg-card-hover: #161f30;
+  --bg-sidebar: #0a0f1a;
+  --bg-input: #0d1526;
+  --border: #1F2937;
+  --border-hover: #374151;
+  --text: #FFFFFF;
+  --text-muted: #9CA3AF;
+  --text-dim: #6B7280;
+  
+  color-scheme: dark;
 }
 
 /* ─── Base Resets ─── */
@@ -37,8 +67,7 @@
 }
 
 html {
-  background-color: #0B1220;
-  color-scheme: dark;
+  background-color: var(--color-bg-app);
 }
 
 body {
@@ -167,7 +196,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-ghost:hover {
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--color-bg-card-hover);
   border-color: var(--color-border-hover);
   color: var(--color-text);
 }
@@ -282,7 +311,7 @@ h1, h2, h3, h4, h5, h6 {
 .table-base tbody td {
   padding: 0.5rem 0.75rem;
   color: var(--color-text-muted);
-  border-bottom: 1px solid rgba(31, 41, 55, 0.5);
+  border-bottom: 1px solid var(--color-border);
   white-space: nowrap;
 }
 
@@ -291,7 +320,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .table-base tbody tr:hover {
-  background-color: rgba(255, 255, 255, 0.02);
+  background-color: var(--color-bg-card-hover);
 }
 
 .table-base tbody tr:last-child td {

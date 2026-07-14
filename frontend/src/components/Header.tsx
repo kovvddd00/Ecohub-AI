@@ -17,9 +17,9 @@ export const Header: React.FC = () => {
   const { activePage, status } = useApp();
 
   return (
-    <header className="h-14 border-b border-[#1F2937] bg-[#0B1220]/80 backdrop-blur-md flex items-center justify-between px-6 sticky top-0 z-40">
+    <header className="h-14 border-b border-border bg-bg-app/80 backdrop-blur-md flex items-center justify-between px-6 sticky top-0 z-40">
       {/* Left — Page title */}
-      <h2 className="font-display font-semibold text-sm text-white tracking-tight">
+      <h2 className="font-display font-semibold text-sm text-[var(--color-text)] tracking-tight">
         {pageTitles[activePage]}
       </h2>
 
@@ -36,19 +36,19 @@ export const Header: React.FC = () => {
             </span>
           </div>
         ) : (
-          <div className="flex items-center gap-2 text-xs text-[#6B7280] px-2.5 py-1 rounded-md border border-[#1F2937] font-medium">
+          <div className="flex items-center gap-2 text-xs text-[var(--color-text-dim)] px-2.5 py-1 rounded-md border border-border font-medium">
             <Database className="w-3 h-3" />
             <span>No Dataset</span>
           </div>
         )}
 
         {/* Search placeholder */}
-        <button className="w-8 h-8 rounded-lg border border-[#1F2937] flex items-center justify-center text-[#6B7280] hover:text-[#9CA3AF] hover:border-[#374151] transition-colors">
+        <button className="w-8 h-8 rounded-lg border border-border flex items-center justify-center text-[var(--color-text-dim)] hover:text-[var(--color-text-muted)] hover:border-border-hover transition-colors">
           <Search className="w-3.5 h-3.5" />
         </button>
 
         {/* Notifications placeholder */}
-        <button className="w-8 h-8 rounded-lg border border-[#1F2937] flex items-center justify-center text-[#6B7280] hover:text-[#9CA3AF] hover:border-[#374151] transition-colors relative">
+        <button className="w-8 h-8 rounded-lg border border-border flex items-center justify-center text-[var(--color-text-dim)] hover:text-[var(--color-text-muted)] hover:border-border-hover transition-colors relative">
           <Bell className="w-3.5 h-3.5" />
         </button>
       </div>

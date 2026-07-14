@@ -16,8 +16,8 @@ export const EmptyState: React.FC<EmptyStateProps> = ({ icon, title, description
       <div className="w-14 h-14 rounded-xl bg-emerald-500/8 border border-emerald-500/15 flex items-center justify-center text-emerald-400 mb-4">
         {icon}
       </div>
-      <h3 className="text-lg font-semibold text-white mb-1">{title}</h3>
-      <p className="text-sm text-[#6B7280] max-w-sm mb-5">{description}</p>
+      <h3 className="text-lg font-semibold text-[var(--color-text)] mb-1">{title}</h3>
+      <p className="text-sm text-[var(--color-text-dim)] max-w-sm mb-5">{description}</p>
       <button
         onClick={() => setActivePage('upload')}
         className="btn-primary text-sm"

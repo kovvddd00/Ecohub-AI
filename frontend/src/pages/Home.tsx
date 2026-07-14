@@ -66,13 +66,13 @@ export const Home: React.FC = () => {
       {/* ── Hero Section ── */}
       <div className="flex items-start justify-between gap-8">
         <div className="space-y-3">
-          <h1 className="text-3xl font-bold font-display tracking-tight text-white">
+          <h1 className="text-3xl font-bold font-display tracking-tight text-[var(--color-text)]">
             EcoHub <span className="text-gradient">AI</span>
           </h1>
-          <p className="text-sm text-[#9CA3AF] font-medium">
+          <p className="text-sm text-[var(--color-text-muted)] font-medium">
             AI-Powered Sustainability Analytics Platform
           </p>
-          <p className="text-xs text-[#6B7280] max-w-lg leading-relaxed">
+          <p className="text-xs text-[var(--color-text-dim)] max-w-lg leading-relaxed">
             Upload environmental datasets, run machine learning models, and extract actionable insights
             from sustainability metrics — all in a streamlined interface powered by scikit-learn.
           </p>
@@ -130,8 +130,8 @@ export const Home: React.FC = () => {
         <div className="grid grid-cols-5 gap-4">
           {/* Left — Dataset Preview Table */}
           <div className="col-span-3 card-base overflow-hidden">
-            <div className="px-4 py-3 border-b border-[#1F2937] flex items-center justify-between">
-              <h3 className="text-sm font-semibold text-white">Dataset Preview</h3>
+            <div className="px-4 py-3 border-b border-border flex items-center justify-between">
+              <h3 className="text-sm font-semibold text-[var(--color-text)]">Dataset Preview</h3>
               <button
                 onClick={() => setActivePage('upload')}
                 className="text-xs text-emerald-400 hover:text-emerald-300 font-medium flex items-center gap-1 transition-colors"
@@ -172,27 +172,27 @@ export const Home: React.FC = () => {
 
           {/* Right — Dataset Summary */}
           <div className="col-span-2 card-base p-4 space-y-4">
-            <h3 className="text-sm font-semibold text-white">Dataset Summary</h3>
+            <h3 className="text-sm font-semibold text-[var(--color-text)]">Dataset Summary</h3>
 
             <div className="space-y-2.5">
               {/* Column Types */}
               <div className="flex items-center justify-between text-xs">
-                <span className="text-[#6B7280]">Numeric Columns</span>
-                <span className="text-white font-medium">
+                <span className="text-[var(--color-text-dim)]">Numeric Columns</span>
+                <span className="text-[var(--color-text)] font-medium">
                   {status.info.columns.filter(c => c.type.includes('int') || c.type.includes('float')).length}
                 </span>
               </div>
               <div className="flex items-center justify-between text-xs">
-                <span className="text-[#6B7280]">Categorical Columns</span>
-                <span className="text-white font-medium">
+                <span className="text-[var(--color-text-dim)]">Categorical Columns</span>
+                <span className="text-[var(--color-text)] font-medium">
                   {status.info.columns.filter(c => !c.type.includes('int') && !c.type.includes('float')).length}
                 </span>
               </div>
-              <div className="h-px bg-[#1F2937]" />
+              <div className="h-px bg-border" />
 
               {/* Missing Values */}
               <div className="flex items-center justify-between text-xs">
-                <span className="text-[#6B7280]">Total Missing</span>
+                <span className="text-[var(--color-text-dim)]">Total Missing</span>
                 <span className={`font-medium ${totalNulls > 0 ? 'text-amber-400' : 'text-emerald-400'}`}>
                   {totalNulls}
                 </span>
@@ -200,19 +200,19 @@ export const Home: React.FC = () => {
 
               {/* Cleaning Status */}
               <div className="flex items-center justify-between text-xs">
-                <span className="text-[#6B7280]">Status</span>
+                <span className="text-[var(--color-text-dim)]">Status</span>
                 {status.is_cleaned ? (
                   <span className="badge badge-emerald">Cleaned</span>
                 ) : (
                   <span className="badge badge-amber">Raw</span>
                 )}
               </div>
-              <div className="h-px bg-[#1F2937]" />
+              <div className="h-px bg-border" />
 
               {/* Duplicates */}
               <div className="flex items-center justify-between text-xs">
-                <span className="text-[#6B7280]">Filename</span>
-                <span className="text-white font-medium text-[11px] max-w-[140px] truncate">{status.filename}</span>
+                <span className="text-[var(--color-text-dim)]">Filename</span>
+                <span className="text-[var(--color-text)] font-medium text-[11px] max-w-[140px] truncate">{status.filename}</span>
               </div>
             </div>
           </div>
@@ -224,9 +224,9 @@ export const Home: React.FC = () => {
         <div className="grid grid-cols-2 gap-4">
           {/* Left — Correlation Heatmap */}
           <div className="card-base overflow-hidden">
-            <div className="px-4 py-3 border-b border-[#1F2937]">
-              <h3 className="text-sm font-semibold text-white">Correlation Heatmap</h3>
-              <p className="text-[11px] text-[#6B7280]">Pearson correlation matrix</p>
+            <div className="px-4 py-3 border-b border-border">
+              <h3 className="text-sm font-semibold text-[var(--color-text)]">Correlation Heatmap</h3>
+              <p className="text-[11px] text-[var(--color-text-dim)]">Pearson correlation matrix</p>
             </div>
             <div className="p-3 overflow-auto max-h-[220px]">
               {heatmapData.length > 0 && numericCols.length > 0 ? (
@@ -254,16 +254,16 @@ export const Home: React.FC = () => {
                   })}
                 </div>
               ) : (
-                <p className="text-xs text-[#4B5563] text-center py-8">No correlation data available</p>
+                <p className="text-xs text-[var(--color-text-dim)] text-center py-8">No correlation data available</p>
               )}
             </div>
           </div>
 
           {/* Right — Distribution Chart */}
           <div className="card-base overflow-hidden">
-            <div className="px-4 py-3 border-b border-[#1F2937]">
-              <h3 className="text-sm font-semibold text-white">Distribution</h3>
-              <p className="text-[11px] text-[#6B7280]">{numericCols[0] || 'First numeric column'}</p>
+            <div className="px-4 py-3 border-b border-border">
+              <h3 className="text-sm font-semibold text-[var(--color-text)]">Distribution</h3>
+              <p className="text-[11px] text-[var(--color-text-dim)]">{numericCols[0] || 'First numeric column'}</p>
             </div>
             <div className="p-3 h-[200px]">
               {histData.length > 0 ? (
@@ -285,7 +285,7 @@ export const Home: React.FC = () => {
                   </BarChart>
                 </ResponsiveContainer>
               ) : (
-                <p className="text-xs text-[#4B5563] text-center py-16">No distribution data</p>
+                <p className="text-xs text-[var(--color-text-dim)] text-center py-16">No distribution data</p>
               )}
             </div>
           </div>
@@ -294,7 +294,7 @@ export const Home: React.FC = () => {
 
       {/* ── ML Model Cards ── */}
       <div>
-        <h3 className="text-sm font-semibold text-white mb-3">Machine Learning Models</h3>
+        <h3 className="text-sm font-semibold text-[var(--color-text)] mb-3">Machine Learning Models</h3>
         <div className="grid grid-cols-3 gap-4">
           <ModelCard
             icon={<TrendingUp className="w-4 h-4" />}
@@ -326,8 +326,8 @@ export const Home: React.FC = () => {
       {/* ── Recent Results ── */}
       {resultsHistory.length > 0 && (
         <div className="card-base overflow-hidden">
-          <div className="px-4 py-3 border-b border-[#1F2937] flex items-center justify-between">
-            <h3 className="text-sm font-semibold text-white">Recent Results</h3>
+          <div className="px-4 py-3 border-b border-border flex items-center justify-between">
+            <h3 className="text-sm font-semibold text-[var(--color-text)]">Recent Results</h3>
             <button
               onClick={() => setActivePage('results')}
               className="text-xs text-emerald-400 hover:text-emerald-300 font-medium flex items-center gap-1 transition-colors"
@@ -352,7 +352,7 @@ export const Home: React.FC = () => {
                     <td>
                       <span className="badge badge-emerald">{item.type}</span>
                     </td>
-                    <td className="text-[#6B7280]">{item.timestamp}</td>
+                    <td className="text-[var(--color-text-dim)]">{item.timestamp}</td>
                     {Object.values(item.metrics).slice(0, 4).map((val, i) => {
                       const isPercent = typeof val === 'number' && val <= 1 && val >= 0;
                       return (

@@ -21,9 +21,9 @@ export const StatCard: React.FC<StatCardProps> = ({ icon, label, value, subtitle
         {icon}
       </div>
       <div className="min-w-0">
-        <p className="text-[11px] font-medium text-[#6B7280] uppercase tracking-wider">{label}</p>
-        <p className="text-xl font-bold text-white mt-0.5 font-display">{value}</p>
-        {subtitle && <p className="text-[11px] text-[#4B5563] mt-0.5">{subtitle}</p>}
+        <p className="text-[11px] font-medium text-[var(--color-text-dim)] uppercase tracking-wider">{label}</p>
+        <p className="text-xl font-bold text-[var(--color-text)] mt-0.5 font-display">{value}</p>
+        {subtitle && <p className="text-[11px] text-[var(--color-text-dim)] mt-0.5">{subtitle}</p>}
       </div>
     </motion.div>
   );

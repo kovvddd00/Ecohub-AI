@@ -30,12 +30,12 @@ export const ModelCard: React.FC<ModelCardProps> = ({ icon, title, description, 
     >
       <div className="flex items-start justify-between">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-[#1F2937]/60 flex items-center justify-center text-[#9CA3AF]">
+          <div className="w-8 h-8 rounded-lg bg-border/60 flex items-center justify-center text-[var(--color-text-muted)]">
             {icon}
           </div>
           <div>
-            <h4 className="text-sm font-semibold text-white">{title}</h4>
-            <p className="text-[11px] text-[#6B7280] mt-0.5 leading-tight">{description}</p>
+            <h4 className="text-sm font-semibold text-[var(--color-text)]">{title}</h4>
+            <p className="text-[11px] text-[var(--color-text-dim)] mt-0.5 leading-tight">{description}</p>
           </div>
         </div>
         <span className={`badge ${cfg.className}`}>{cfg.label}</span>

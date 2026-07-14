@@ -37,17 +37,17 @@ export const Sidebar: React.FC = () => {
   const { activePage, setActivePage, status, darkMode, toggleDarkMode } = useApp();
 
   return (
-    <aside className="fixed left-0 top-0 bottom-0 w-60 bg-[#0a0f1a] border-r border-[#1F2937] flex flex-col z-50">
+    <aside className="fixed left-0 top-0 bottom-0 w-60 bg-bg-sidebar border-r border-border flex flex-col z-50">
       {/* Logo */}
-      <div className="h-14 flex items-center px-5 border-b border-[#1F2937]">
+      <div className="h-14 flex items-center px-5 border-b border-border">
         <button
           onClick={() => setActivePage('home')}
           className="flex items-center gap-2.5 group"
         >
           <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-lg shadow-emerald-500/20 group-hover:shadow-emerald-500/30 transition-shadow">
-            <Leaf className="w-3.5 h-3.5 text-white" />
+            <Leaf className="w-3.5 h-3.5 text-[var(--color-text)]" />
           </div>
-          <span className="font-display font-bold text-sm text-white tracking-tight">
+          <span className="font-display font-bold text-sm text-[var(--color-text)] tracking-tight">
             EcoHub <span className="text-emerald-400 font-extrabold">AI</span>
           </span>
         </button>
@@ -69,14 +69,14 @@ export const Sidebar: React.FC = () => {
                   ? 'bg-emerald-500/10 text-emerald-400'
                   : isLocked
                     ? 'text-[#374151] cursor-not-allowed'
-                    : 'text-[#9CA3AF] hover:text-white hover:bg-white/[0.03]'
+                    : 'text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-white/[0.03]'
               }`}
             >
               {/* Active indicator bar */}
               {isActive && (
                 <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-5 rounded-r-full bg-emerald-500" />
               )}
-              <span className={isActive ? 'text-emerald-400' : isLocked ? 'text-[#374151]' : 'text-[#6B7280] group-hover:text-[#9CA3AF]'}>
+              <span className={isActive ? 'text-emerald-400' : isLocked ? 'text-[#374151]' : 'text-[var(--color-text-dim)] group-hover:text-[var(--color-text-muted)]'}>
                 {item.icon}
               </span>
               <span>{item.label}</span>
@@ -86,23 +86,23 @@ export const Sidebar: React.FC = () => {
       </nav>
 
       {/* Bottom Section */}
-      <div className="px-3 pb-4 space-y-3 border-t border-[#1F2937] pt-3">
+      <div className="px-3 pb-4 space-y-3 border-t border-border pt-3">
         {/* Version */}
         <div className="flex items-center justify-between px-3">
-          <span className="text-[11px] text-[#4B5563] font-medium">v4.0.0</span>
+          <span className="text-[11px] text-[var(--color-text-dim)] font-medium">v4.0.0</span>
           <span className="badge badge-slate text-[10px]">Stable</span>
         </div>
 
         {/* Team */}
         <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/[0.02]">
-          <Users className="w-3.5 h-3.5 text-[#6B7280]" />
-          <span className="text-[11px] text-[#6B7280] font-medium">EcoHub Lab</span>
+          <Users className="w-3.5 h-3.5 text-[var(--color-text-dim)]" />
+          <span className="text-[11px] text-[var(--color-text-dim)] font-medium">EcoHub Lab</span>
         </div>
 
         {/* Dark Mode Toggle */}
         <button
           onClick={toggleDarkMode}
-          className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px] font-medium text-[#9CA3AF] hover:text-white hover:bg-white/[0.03] transition-all"
+          className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px] font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-white/[0.03] transition-all"
         >
           {darkMode ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-blue-400" />}
           <span>{darkMode ? 'Light Mode' : 'Dark Mode'}</span>

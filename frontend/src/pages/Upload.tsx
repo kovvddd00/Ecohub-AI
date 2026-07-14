@@ -32,8 +32,8 @@ export const Upload: React.FC = () => {
   return (
     <div className="space-y-6 max-w-[1200px]">
       <div>
-        <h1 className="text-2xl font-bold font-display tracking-tight text-white">Dataset</h1>
-        <p className="text-xs text-[#6B7280] mt-1">Import and configure sustainability datasets for analysis.</p>
+        <h1 className="text-2xl font-bold font-display tracking-tight text-[var(--color-text)]">Dataset</h1>
+        <p className="text-xs text-[var(--color-text-dim)] mt-1">Import and configure sustainability datasets for analysis.</p>
       </div>
 
       {error && (
@@ -49,7 +49,7 @@ export const Upload: React.FC = () => {
           className={`border-2 border-dashed rounded-xl p-10 text-center flex flex-col items-center justify-center transition-all ${
             dragActive
               ? 'border-emerald-500 bg-emerald-500/5'
-              : 'border-[#1F2937] hover:border-[#374151]'
+              : 'border-border hover:border-border-hover'
           }`}
           onDragEnter={handleDrag}
           onDragOver={handleDrag}
@@ -59,15 +59,15 @@ export const Upload: React.FC = () => {
           <div className="w-12 h-12 rounded-xl bg-emerald-500/8 border border-emerald-500/15 flex items-center justify-center text-emerald-400 mb-3">
             <UploadIcon className="w-5 h-5" />
           </div>
-          <h3 className="text-sm font-semibold text-white mb-1">Upload CSV Dataset</h3>
-          <p className="text-xs text-[#6B7280] max-w-xs mb-4">
+          <h3 className="text-sm font-semibold text-[var(--color-text)] mb-1">Upload CSV Dataset</h3>
+          <p className="text-xs text-[var(--color-text-dim)] max-w-xs mb-4">
             Drag and drop your CSV file here, or click to browse.
           </p>
           <label className="btn-primary text-xs cursor-pointer">
             <span>Browse Files</span>
             <input type="file" accept=".csv" className="hidden" onChange={handleFileInput} disabled={isLoading} />
           </label>
-          <div className="mt-4 text-xs text-[#4B5563]">
+          <div className="mt-4 text-xs text-[var(--color-text-dim)]">
             <span>No dataset? </span>
             <button onClick={loadSampleDataset} disabled={isLoading} className="text-emerald-400 hover:text-emerald-300 font-medium transition-colors">
               {isLoading ? 'Loading...' : 'Use sample dataset'}
@@ -82,13 +82,13 @@ export const Upload: React.FC = () => {
           {/* Left Panel — File Info + Cleaning */}
           <div className="col-span-1 space-y-4">
             <div className="card-base p-4 space-y-4">
-              <h3 className="text-sm font-semibold text-white">File Info</h3>
+              <h3 className="text-sm font-semibold text-[var(--color-text)]">File Info</h3>
               <div className="space-y-2.5">
                 <div className="flex items-center gap-3 bg-emerald-500/5 border border-emerald-500/10 p-3 rounded-lg">
                   <div className="w-8 h-8 rounded-md bg-emerald-500/10 flex items-center justify-center text-emerald-400 text-[10px] font-bold">CSV</div>
                   <div className="min-w-0">
-                    <p className="text-xs font-medium text-white truncate">{status.filename}</p>
-                    <p className="text-[10px] text-[#6B7280]">{status.info.row_count} rows · {status.info.col_count} cols</p>
+                    <p className="text-xs font-medium text-[var(--color-text)] truncate">{status.filename}</p>
+                    <p className="text-[10px] text-[var(--color-text-dim)]">{status.info.row_count} rows · {status.info.col_count} cols</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 text-xs font-medium">
@@ -100,11 +100,11 @@ export const Upload: React.FC = () => {
                 </div>
               </div>
 
-              <div className="h-px bg-[#1F2937]" />
+              <div className="h-px bg-border" />
 
               <div className="space-y-3">
                 <div>
-                  <label className="text-[11px] font-medium text-[#6B7280] flex items-center gap-1 mb-1.5">
+                  <label className="text-[11px] font-medium text-[var(--color-text-dim)] flex items-center gap-1 mb-1.5">
                     <ListFilter className="w-3 h-3 text-emerald-500" />
                     Imputation Strategy
                   </label>
@@ -142,8 +142,8 @@ export const Upload: React.FC = () => {
 
           {/* Right Panel — Column Table */}
           <div className="col-span-3 card-base overflow-hidden">
-            <div className="px-4 py-3 border-b border-[#1F2937]">
-              <h3 className="text-sm font-semibold text-white">Column Definitions</h3>
+            <div className="px-4 py-3 border-b border-border">
+              <h3 className="text-sm font-semibold text-[var(--color-text)]">Column Definitions</h3>
             </div>
             <div className="overflow-x-auto max-h-[260px]">
               <table className="table-base">
@@ -159,19 +159,19 @@ export const Upload: React.FC = () => {
                 <tbody>
                   {status.info.columns.map((col, idx) => (
                     <tr key={idx}>
-                      <td className="font-medium text-white">{col.name}</td>
+                      <td className="font-medium text-[var(--color-text)]">{col.name}</td>
                       <td>
                         <span className={`badge ${col.type.includes('int') || col.type.includes('float') ? 'badge-blue' : 'badge-slate'}`}>
                           {col.type}
                         </span>
                       </td>
                       <td className="text-center">
-                        <span className={col.null_count > 0 ? 'text-amber-400 font-medium' : 'text-[#4B5563]'}>{col.null_count}</span>
+                        <span className={col.null_count > 0 ? 'text-amber-400 font-medium' : 'text-[var(--color-text-dim)]'}>{col.null_count}</span>
                       </td>
                       <td className="text-center">
-                        <span className={col.null_percentage > 0 ? 'text-amber-400 font-medium' : 'text-[#4B5563]'}>{col.null_percentage}%</span>
+                        <span className={col.null_percentage > 0 ? 'text-amber-400 font-medium' : 'text-[var(--color-text-dim)]'}>{col.null_percentage}%</span>
                       </td>
-                      <td className="text-right font-mono text-[#6B7280]">{col.unique_count}</td>
+                      <td className="text-right font-mono text-[var(--color-text-dim)]">{col.unique_count}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -184,9 +184,9 @@ export const Upload: React.FC = () => {
       {/* Data Preview */}
       {status.loaded && status.info?.preview && (
         <div className="card-base overflow-hidden">
-          <div className="px-4 py-3 border-b border-[#1F2937]">
-            <h3 className="text-sm font-semibold text-white">Data Preview</h3>
-            <p className="text-[11px] text-[#6B7280]">First 10 records</p>
+          <div className="px-4 py-3 border-b border-border">
+            <h3 className="text-sm font-semibold text-[var(--color-text)]">Data Preview</h3>
+            <p className="text-[11px] text-[var(--color-text-dim)]">First 10 records</p>
           </div>
           <div className="overflow-x-auto max-h-[300px]">
             <table className="table-base">
