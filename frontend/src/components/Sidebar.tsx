@@ -13,6 +13,7 @@ import {
   Sun,
   Moon,
   Users,
+  Globe,
 } from 'lucide-react';
 
 interface NavItem {
@@ -25,6 +26,7 @@ interface NavItem {
 const navItems: NavItem[] = [
   { id: 'home', label: 'Dashboard', icon: <LayoutDashboard className="w-4 h-4" /> },
   { id: 'upload', label: 'Dataset', icon: <FolderOpen className="w-4 h-4" /> },
+  { id: 'persona-carbo', label: 'personaCarbo', icon: <Globe className="w-4 h-4" /> },
   { id: 'eda', label: 'EDA', icon: <BarChart3 className="w-4 h-4" />, requiresDataset: true },
   { id: 'linear', label: 'Linear Regression', icon: <TrendingUp className="w-4 h-4" />, requiresDataset: true },
   { id: 'logistic', label: 'Logistic Regression', icon: <GitBranch className="w-4 h-4" />, requiresDataset: true },
