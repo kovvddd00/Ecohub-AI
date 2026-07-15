@@ -1134,7 +1134,7 @@ export const PersonaCarbo: React.FC = () => {
                     strokeLinecap="round"
                     strokeDasharray="283"
                     strokeDashoffset={283 - (result.sustainabilityScore / 100) * 283}
-                    transition="stroke-dashoffset 0.8s ease-out"
+                    style={{ transition: 'stroke-dashoffset 0.8s ease-out' }}
                   />
                   {/* Gradients */}
                   <defs>
