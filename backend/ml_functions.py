@@ -967,7 +967,7 @@ def run_ann_regression(df: pd.DataFrame, features: list, target: str, epochs: in
     try:
         import tensorflow as tf
         from tensorflow.keras.models import Sequential
-        from tensorflow.keras.layers import Dense, Dropout
+        from tensorflow.keras.layers import Input, Dense, Dropout
         from tensorflow.keras.callbacks import EarlyStopping
     except ImportError:
         raise ImportError(
@@ -993,7 +993,8 @@ def run_ann_regression(df: pd.DataFrame, features: list, target: str, epochs: in
     X_test_scaled = scaler.transform(X_test)
     
     model = Sequential([
-        Dense(128, activation='relu', input_shape=(X_train_scaled.shape[1],)),
+        Input(shape=(X_train_scaled.shape[1],)),
+        Dense(128, activation='relu'),
         Dropout(0.2),
         Dense(64, activation='relu'),
         Dropout(0.2),
@@ -1115,7 +1116,7 @@ def generate_ai_report(user_data: dict, api_key: str = None) -> dict:
         
     effective_api_key = api_key or os.environ.get("GEMINI_API_KEY")
     if not effective_api_key:
-        effective_api_key = "AQ.Ab8RN6L4uJKEDnLKoRx4cHwmJNmA_sGtAi-Eec_jUCnW1smmMw"
+        raise ValueError("Gemini API key is missing. Please set the GEMINI_API_KEY environment variable or provide it in the request.")
         
     try:
         client = genai.Client(api_key=effective_api_key)
