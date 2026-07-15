@@ -10,6 +10,7 @@ import { LogisticRegression } from './pages/LogisticRegression';
 import { KMeans } from './pages/KMeans';
 import { Results } from './pages/Results';
 import { SettingsPage } from './pages/Settings';
+import { PersonaCarbo } from './pages/PersonaCarbo';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const MainContent: React.FC = () => {
@@ -25,9 +26,11 @@ const MainContent: React.FC = () => {
       case 'kmeans': return <KMeans />;
       case 'results': return <Results />;
       case 'settings': return <SettingsPage />;
+      case 'persona-carbo': return <PersonaCarbo />;
       default: return <Home />;
     }
   };
+
 
   return (
     <div className="ml-60 flex flex-col min-h-screen">

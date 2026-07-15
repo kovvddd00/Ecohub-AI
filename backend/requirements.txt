@@ -4,3 +4,7 @@ pandas
 numpy
 scikit-learn
 python-multipart
+joblib
+google-genai
+tensorflow
+reportlab

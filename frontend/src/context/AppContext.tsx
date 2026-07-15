@@ -33,7 +33,7 @@ export interface HistoryItem {
   results: any;
 }
 
-export type PageId = 'home' | 'upload' | 'eda' | 'linear' | 'logistic' | 'kmeans' | 'results' | 'settings';
+export type PageId = 'home' | 'upload' | 'eda' | 'linear' | 'logistic' | 'kmeans' | 'results' | 'settings' | 'persona-carbo';
 
 interface AppContextType {
   status: DatasetStatus;
