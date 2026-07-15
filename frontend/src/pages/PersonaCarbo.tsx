@@ -499,7 +499,7 @@ export const PersonaCarbo: React.FC = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full bg-[#0d1526] border border-[#1F2937] text-white rounded-lg px-4 py-2.5 outline-none focus:border-emerald-500 transition-colors text-sm"
+                      className="input-base px-4 py-2.5 text-sm"
                     />
                   </div>
                   <div className="space-y-1.5">
@@ -511,7 +511,7 @@ export const PersonaCarbo: React.FC = () => {
                       value={formData.age}
                       onChange={handleInputChange}
                       required
-                      className="w-full bg-[#0d1526] border border-[#1F2937] text-white rounded-lg px-4 py-2.5 outline-none focus:border-emerald-500 transition-colors text-sm"
+                      className="input-base px-4 py-2.5 text-sm"
                     />
                   </div>
                   <div className="space-y-1.5">
@@ -523,7 +523,7 @@ export const PersonaCarbo: React.FC = () => {
                       value={formData.country}
                       onChange={handleInputChange}
                       required
-                      className="w-full bg-[#0d1526] border border-[#1F2937] text-white rounded-lg px-4 py-2.5 outline-none focus:border-emerald-500 transition-colors text-sm"
+                      className="input-base px-4 py-2.5 text-sm"
                     />
                   </div>
                   <div className="space-y-1.5">
@@ -535,7 +535,7 @@ export const PersonaCarbo: React.FC = () => {
                       value={formData.city}
                       onChange={handleInputChange}
                       required
-                      className="w-full bg-[#0d1526] border border-[#1F2937] text-white rounded-lg px-4 py-2.5 outline-none focus:border-emerald-500 transition-colors text-sm"
+                      className="input-base px-4 py-2.5 text-sm"
                     />
                   </div>
                   <div className="space-y-1.5">
@@ -547,7 +547,7 @@ export const PersonaCarbo: React.FC = () => {
                       value={formData.familySize}
                       onChange={handleInputChange}
                       required
-                      className="w-full bg-[#0d1526] border border-[#1F2937] text-white rounded-lg px-4 py-2.5 outline-none focus:border-emerald-500 transition-colors text-sm"
+                      className="input-base px-4 py-2.5 text-sm"
                     />
                   </div>
                   <div className="space-y-1.5">
@@ -556,7 +556,7 @@ export const PersonaCarbo: React.FC = () => {
                       name="workType"
                       value={formData.workType}
                       onChange={handleInputChange}
-                      className="w-full bg-[#0d1526] border border-[#1F2937] text-white rounded-lg px-4 py-2.5 outline-none focus:border-emerald-500 transition-colors text-sm"
+                      className="input-base px-4 py-2.5 text-sm"
                     >
                       <option value="Work From Home">Work From Home (WFH)</option>
                       <option value="Hybrid">Hybrid</option>
@@ -581,7 +581,7 @@ export const PersonaCarbo: React.FC = () => {
                       name="vehicleType"
                       value={formData.vehicleType}
                       onChange={handleInputChange}
-                      className="w-full bg-[#0d1526] border border-[#1F2937] text-white rounded-lg px-4 py-2.5 outline-none focus:border-emerald-500 transition-colors text-sm"
+                      className="input-base px-4 py-2.5 text-sm"
                     >
                       <option value="None">None</option>
                       <option value="Bicycle">Bicycle</option>
@@ -600,7 +600,7 @@ export const PersonaCarbo: React.FC = () => {
                       placeholder="e.g. 150"
                       value={formData.kmTravelledPerWeek}
                       onChange={handleInputChange}
-                      className="w-full bg-[#0d1526] border border-[#1F2937] text-white rounded-lg px-4 py-2.5 outline-none focus:border-emerald-500 transition-colors text-sm"
+                      className="input-base px-4 py-2.5 text-sm"
                     />
                   </div>
                   <div className="space-y-1.5">
@@ -611,7 +611,7 @@ export const PersonaCarbo: React.FC = () => {
                       placeholder="e.g. 2"
                       value={formData.flightsPerYear}
                       onChange={handleInputChange}
-                      className="w-full bg-[#0d1526] border border-[#1F2937] text-white rounded-lg px-4 py-2.5 outline-none focus:border-emerald-500 transition-colors text-sm"
+                      className="input-base px-4 py-2.5 text-sm"
                     />
                   </div>
                   <div className="space-y-1.5">
@@ -620,7 +620,7 @@ export const PersonaCarbo: React.FC = () => {
                       name="publicTransportUsage"
                       value={formData.publicTransportUsage}
                       onChange={handleInputChange}
-                      className="w-full bg-[#0d1526] border border-[#1F2937] text-white rounded-lg px-4 py-2.5 outline-none focus:border-emerald-500 transition-colors text-sm"
+                      className="input-base px-4 py-2.5 text-sm"
                     >
                       <option value="Never">Never</option>
                       <option value="Rarely">Rarely</option>
@@ -649,7 +649,7 @@ export const PersonaCarbo: React.FC = () => {
                       placeholder="e.g. 250"
                       value={formData.monthlyElectricityKwh}
                       onChange={handleInputChange}
-                      className="w-full bg-[#0d1526] border border-[#1F2937] text-white rounded-lg px-4 py-2.5 outline-none focus:border-emerald-500 transition-colors text-sm"
+                      className="input-base px-4 py-2.5 text-sm"
                     />
                   </div>
                   <div className="space-y-1.5">
@@ -660,7 +660,7 @@ export const PersonaCarbo: React.FC = () => {
                       placeholder="e.g. 2000"
                       value={formData.monthlyElectricityBill}
                       onChange={handleInputChange}
-                      className="w-full bg-[#0d1526] border border-[#1F2937] text-white rounded-lg px-4 py-2.5 outline-none focus:border-emerald-500 transition-colors text-sm"
+                      className="input-base px-4 py-2.5 text-sm"
                     />
                   </div>
                   <div className="space-y-1.5">
@@ -670,7 +670,7 @@ export const PersonaCarbo: React.FC = () => {
                       name="acUnits"
                       value={formData.acUnits}
                       onChange={handleInputChange}
-                      className="w-full bg-[#0d1526] border border-[#1F2937] text-white rounded-lg px-4 py-2.5 outline-none focus:border-emerald-500 transition-colors text-sm"
+                      className="input-base px-4 py-2.5 text-sm"
                     />
                   </div>
                   <div className="space-y-1.5">
@@ -681,7 +681,7 @@ export const PersonaCarbo: React.FC = () => {
                       placeholder="e.g. 4"
                       value={formData.acUsageHoursPerDay}
                       onChange={handleInputChange}
-                      className="w-full bg-[#0d1526] border border-[#1F2937] text-white rounded-lg px-4 py-2.5 outline-none focus:border-emerald-500 transition-colors text-sm"
+                      className="input-base px-4 py-2.5 text-sm"
                     />
                   </div>
                   <div className="space-y-1.5">
@@ -690,7 +690,7 @@ export const PersonaCarbo: React.FC = () => {
                       name="ledBulbs"
                       value={formData.ledBulbs}
                       onChange={handleInputChange}
-                      className="w-full bg-[#0d1526] border border-[#1F2937] text-white rounded-lg px-4 py-2.5 outline-none focus:border-emerald-500 transition-colors text-sm"
+                      className="input-base px-4 py-2.5 text-sm"
                     >
                       <option value="Yes">Yes</option>
                       <option value="No">No</option>
@@ -702,7 +702,7 @@ export const PersonaCarbo: React.FC = () => {
                       name="solarPanels"
                       value={formData.solarPanels}
                       onChange={handleInputChange}
-                      className="w-full bg-[#0d1526] border border-[#1F2937] text-white rounded-lg px-4 py-2.5 outline-none focus:border-emerald-500 transition-colors text-sm"
+                      className="input-base px-4 py-2.5 text-sm"
                     >
                       <option value="Yes">Yes</option>
                       <option value="No">No</option>
@@ -726,7 +726,7 @@ export const PersonaCarbo: React.FC = () => {
                       name="dietType"
                       value={formData.dietType}
                       onChange={handleInputChange}
-                      className="w-full bg-[#0d1526] border border-[#1F2937] text-white rounded-lg px-4 py-2.5 outline-none focus:border-emerald-500 transition-colors text-sm"
+                      className="input-base px-4 py-2.5 text-sm"
                     >
                       <option value="Vegan">Vegan</option>
                       <option value="Vegetarian">Vegetarian</option>
@@ -743,7 +743,7 @@ export const PersonaCarbo: React.FC = () => {
                       value={formData.meatMealsPerWeek}
                       onChange={handleInputChange}
                       disabled={formData.dietType !== 'Non Vegetarian'}
-                      className="w-full bg-[#0d1526] border border-[#1F2937] text-white rounded-lg px-4 py-2.5 outline-none focus:border-emerald-500 transition-colors text-sm disabled:opacity-40"
+                      className="input-base px-4 py-2.5 text-sm disabled:opacity-40"
                     />
                   </div>
                   <div className="space-y-1.5">
@@ -752,7 +752,7 @@ export const PersonaCarbo: React.FC = () => {
                       name="milkConsumption"
                       value={formData.milkConsumption}
                       onChange={handleInputChange}
-                      className="w-full bg-[#0d1526] border border-[#1F2937] text-white rounded-lg px-4 py-2.5 outline-none focus:border-emerald-500 transition-colors text-sm"
+                      className="input-base px-4 py-2.5 text-sm"
                     >
                       <option value="Low">Low</option>
                       <option value="Medium">Medium</option>
@@ -765,7 +765,7 @@ export const PersonaCarbo: React.FC = () => {
                       name="foodWaste"
                       value={formData.foodWaste}
                       onChange={handleInputChange}
-                      className="w-full bg-[#0d1526] border border-[#1F2937] text-white rounded-lg px-4 py-2.5 outline-none focus:border-emerald-500 transition-colors text-sm"
+                      className="input-base px-4 py-2.5 text-sm"
                     >
                       <option value="Low">Low</option>
                       <option value="Medium">Medium</option>
@@ -792,7 +792,7 @@ export const PersonaCarbo: React.FC = () => {
                       placeholder="e.g. 150"
                       value={formData.dailyWaterUsage}
                       onChange={handleInputChange}
-                      className="w-full bg-[#0d1526] border border-[#1F2937] text-white rounded-lg px-4 py-2.5 outline-none focus:border-emerald-500 transition-colors text-sm"
+                      className="input-base px-4 py-2.5 text-sm"
                     />
                   </div>
                   <div className="space-y-1.5">
@@ -801,7 +801,7 @@ export const PersonaCarbo: React.FC = () => {
                       name="showerDuration"
                       value={formData.showerDuration}
                       onChange={handleInputChange}
-                      className="w-full bg-[#0d1526] border border-[#1F2937] text-white rounded-lg px-4 py-2.5 outline-none focus:border-emerald-500 transition-colors text-sm"
+                      className="input-base px-4 py-2.5 text-sm"
                     >
                       <option value="Short">Short (&lt; 5 mins)</option>
                       <option value="Medium">Medium (5-10 mins)</option>
@@ -816,7 +816,7 @@ export const PersonaCarbo: React.FC = () => {
                       placeholder="e.g. 3"
                       value={formData.washingMachineUsagePerWeek}
                       onChange={handleInputChange}
-                      className="w-full bg-[#0d1526] border border-[#1F2937] text-white rounded-lg px-4 py-2.5 outline-none focus:border-emerald-500 transition-colors text-sm"
+                      className="input-base px-4 py-2.5 text-sm"
                     />
                   </div>
                 </div>
@@ -837,7 +837,7 @@ export const PersonaCarbo: React.FC = () => {
                       name="plasticWaste"
                       value={formData.plasticWaste}
                       onChange={handleInputChange}
-                      className="w-full bg-[#0d1526] border border-[#1F2937] text-white rounded-lg px-4 py-2.5 outline-none focus:border-emerald-500 transition-colors text-sm"
+                      className="input-base px-4 py-2.5 text-sm"
                     >
                       <option value="Low">Low</option>
                       <option value="Medium">Medium</option>
@@ -850,7 +850,7 @@ export const PersonaCarbo: React.FC = () => {
                       name="recycling"
                       value={formData.recycling}
                       onChange={handleInputChange}
-                      className="w-full bg-[#0d1526] border border-[#1F2937] text-white rounded-lg px-4 py-2.5 outline-none focus:border-emerald-500 transition-colors text-sm"
+                      className="input-base px-4 py-2.5 text-sm"
                     >
                       <option value="Always">Always</option>
                       <option value="Sometimes">Sometimes</option>
@@ -863,7 +863,7 @@ export const PersonaCarbo: React.FC = () => {
                       name="composting"
                       value={formData.composting}
                       onChange={handleInputChange}
-                      className="w-full bg-[#0d1526] border border-[#1F2937] text-white rounded-lg px-4 py-2.5 outline-none focus:border-emerald-500 transition-colors text-sm"
+                      className="input-base px-4 py-2.5 text-sm"
                     >
                       <option value="Yes">Yes</option>
                       <option value="No">No</option>
@@ -889,7 +889,7 @@ export const PersonaCarbo: React.FC = () => {
                       placeholder="e.g. 2"
                       value={formData.clothesPurchasedPerMonth}
                       onChange={handleInputChange}
-                      className="w-full bg-[#0d1526] border border-[#1F2937] text-white rounded-lg px-4 py-2.5 outline-none focus:border-emerald-500 transition-colors text-sm"
+                      className="input-base px-4 py-2.5 text-sm"
                     />
                   </div>
                   <div className="space-y-1.5">
@@ -900,7 +900,7 @@ export const PersonaCarbo: React.FC = () => {
                       placeholder="e.g. 5"
                       value={formData.onlineOrdersPerMonth}
                       onChange={handleInputChange}
-                      className="w-full bg-[#0d1526] border border-[#1F2937] text-white rounded-lg px-4 py-2.5 outline-none focus:border-emerald-500 transition-colors text-sm"
+                      className="input-base px-4 py-2.5 text-sm"
                     />
                   </div>
                   <div className="space-y-1.5 col-span-1 md:col-span-2">
@@ -911,7 +911,7 @@ export const PersonaCarbo: React.FC = () => {
                       placeholder="e.g. 1"
                       value={formData.electronicsPurchasedPerYear}
                       onChange={handleInputChange}
-                      className="w-full bg-[#0d1526] border border-[#1F2937] text-white rounded-lg px-4 py-2.5 outline-none focus:border-emerald-500 transition-colors text-sm"
+                      className="input-base px-4 py-2.5 text-sm"
                     />
                   </div>
                 </div>
